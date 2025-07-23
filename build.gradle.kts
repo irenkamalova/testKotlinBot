@@ -8,7 +8,7 @@ repositories {
 }
 
 dependencies {
-    // No dependencies needed for Hello World
+    implementation("org.telegram:telegrambots:6.8.0")
 }
 
 application {
