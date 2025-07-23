@@ -1,0 +1,35 @@
+# Kotlin/Gradle
+/build/
+/.gradle/
+.gradle/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Kotlin
+*.class
+*.jar
+*.war
+*.ear
+
+# Misc
+*.swp
+*~ 
+
+# Ignore Gradle wrapper scripts
+/gradlew
+/gradlew.bat 
