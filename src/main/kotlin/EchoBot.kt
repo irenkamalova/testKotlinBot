@@ -8,7 +8,10 @@ class EchoBot(token: String) : TelegramLongPollingBot(token) {
         if (update.hasMessage() && update.message.hasText()) {
             val text = update.message.text
             val chatId = update.message.chatId
-            sendTextMessage(chatId, text)
+            when {
+                text.startsWith("/help") -> sendHelpMessage(chatId)
+                else -> sendTextMessage(chatId, text)
+            }
         }
     }
     private fun sendTextMessage(chatId: Long, text: String) {
@@ -16,5 +19,18 @@ class EchoBot(token: String) : TelegramLongPollingBot(token) {
         sendMessage.chatId = chatId.toString()
         sendMessage.text = text
         execute(sendMessage)
+    }
+    private fun sendHelpMessage(chatId: Long) {
+        val helpText = """
+            🤖 Echo Bot Help
+            
+            This bot echoes back any message you send to it!
+            
+            Commands:
+            /help - Show this help message
+            
+            Just send any text message and I'll echo it back to you.
+        """.trimIndent()
+        sendTextMessage(chatId, helpText)
     }
 }
